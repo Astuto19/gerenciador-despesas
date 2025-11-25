@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import dj_database_url
+import os
 import threading
 import webbrowser
 from django.utils.autoreload import autoreload_started
@@ -30,6 +32,8 @@ SECRET_KEY = 'django-insecure-^jo+jz481i_g0k0j^m8l1j4wt++8!tg2$kpocj5l0n1z$!slr0
 DEBUG = True
 
 ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -78,9 +82,12 @@ WSGI_APPLICATION = 'financeiro.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    'default': dj_database_url.parse(
+        os.environ.get("DATABASE_URL"),
+        conn_max_age=600
+    )
+}
+
     }
 }
 
@@ -137,5 +144,6 @@ def abrir_navegador(*args, **kwargs):
     def _open():
         webbrowser.open_new("http://127.0.0.1:8000/")
     threading.Timer(1, _open).start()
+
 
 autoreload_started.connect(abrir_navegador)
