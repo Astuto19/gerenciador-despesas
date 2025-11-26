@@ -147,3 +147,5 @@ def abrir_navegador(*args, **kwargs):
 
 
 autoreload_started.connect(abrir_navegador)
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
