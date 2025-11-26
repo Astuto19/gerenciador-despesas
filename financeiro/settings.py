@@ -39,13 +39,14 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'despesas',  
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'despesas',  # <--- Adicione esta linha aqui!
+    
 ]
 
 MIDDLEWARE = [
@@ -149,4 +150,5 @@ def abrir_navegador(*args, **kwargs):
 autoreload_started.connect(abrir_navegador)
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
