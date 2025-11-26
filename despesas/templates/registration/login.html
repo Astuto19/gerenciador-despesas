@@ -38,7 +38,9 @@
                 <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
             </div>
         </form>
-
+        <div class="text-center mt-3">
+            <a href="{% url 'password_reset' %}">Esqueci minha senha</a>
+        </div>
         <div class="text-center mt-3 border-top pt-3">
             <p class="mb-0">Não tem conta?</p>
             <a href="{% url 'registro' %}" class="btn btn-outline-success btn-sm mt-2">Criar Nova Conta</a>
@@ -46,4 +48,5 @@
         </div>
 
 </body>
+
 </html>
