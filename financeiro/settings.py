@@ -89,9 +89,6 @@ DATABASES = {
     )
 }
 
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -150,5 +147,6 @@ def abrir_navegador(*args, **kwargs):
 autoreload_started.connect(abrir_navegador)
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 
